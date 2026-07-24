@@ -20,8 +20,14 @@ ul { list-style: none; }
   --color-text-dark: #4A3048;
   --color-text-secondary: #765D73;
 
-  --gradient-main: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-lilac) 55%, var(--color-purple) 100%);
+  /* NOVO: paleta laranja de destaque */
+  --color-orange: #FF8A3D;
+  --color-orange-dark: #E86A16;
+  --color-orange-light: #FFD3AC;
+
+  --gradient-main: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink-accent) 55%, var(--color-purple) 100%);
   --gradient-soft: linear-gradient(160deg, #FDEFFB 0%, #F5E3F4 100%);
+  --gradient-orange: linear-gradient(135deg, var(--color-orange-light) 0%, var(--color-orange) 100%);
 
   --font-title: 'Baloo 2', cursive;
   --font-body: 'Nunito Sans', sans-serif;
@@ -32,6 +38,7 @@ ul { list-style: none; }
 
   --shadow-sm: 0 4px 14px rgba(155, 61, 154, 0.12);
   --shadow-md: 0 10px 30px rgba(155, 61, 154, 0.18);
+  --shadow-orange: 0 6px 18px rgba(232, 106, 22, 0.28);
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -76,13 +83,13 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
-.btn:focus-visible { outline: 3px solid var(--color-purple); outline-offset: 2px; }
-.btn-primary { background: var(--gradient-main); color: var(--color-white); box-shadow: var(--shadow-sm); }
+.btn:focus-visible { outline: 3px solid var(--color-orange-dark); outline-offset: 2px; }
+.btn-primary { background: var(--gradient-main); color: var(--color-white); box-shadow: var(--shadow-orange); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-primary:active { transform: translateY(0); }
-.btn-outline { border: 2px solid var(--color-purple); color: var(--color-purple); background: transparent; }
-.btn-outline:hover { background: var(--color-purple); color: var(--color-white); }
-.btn-white { background: var(--color-white); color: var(--color-purple); box-shadow: var(--shadow-md); font-size: 1.05rem; padding: 1rem 2.2rem; }
+.btn-outline { border: 2px solid var(--color-orange-dark); color: var(--color-orange-dark); background: transparent; }
+.btn-outline:hover { background: var(--color-orange-dark); color: var(--color-white); }
+.btn-white { background: var(--color-white); color: var(--color-orange-dark); box-shadow: var(--shadow-md); font-size: 1.05rem; padding: 1rem 2.2rem; }
 .btn-white:hover { transform: translateY(-2px); }
 .btn-small { padding: 0.6rem 1.3rem; font-size: 0.9rem; }
 
@@ -107,7 +114,7 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
 }
 .logo-box { display: flex; flex-direction: column; }
 .logo-text { font-family: var(--font-title); font-size: 1.4rem; font-weight: 700; color: var(--color-purple); }
-.logo-sub { font-size: 0.7rem; color: var(--color-text-secondary); }
+.logo-sub { font-size: 0.7rem; color: var(--color-orange-dark); font-weight: 700; }
 
 .nav {
   display: flex;
@@ -115,10 +122,10 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   gap: var(--space-4);
 }
 .nav-link { font-weight: 600; color: var(--color-text-dark); position: relative; padding: 0.3rem 0; }
-.nav-link:hover, .nav-link:focus-visible { color: var(--color-purple); }
+.nav-link:hover, .nav-link:focus-visible { color: var(--color-orange-dark); }
 .nav-link::after {
   content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px;
-  background: var(--color-pink-accent); transition: width 0.2s ease;
+  background: var(--color-orange); transition: width 0.2s ease;
 }
 .nav-link:hover::after { width: 100%; }
 
@@ -142,7 +149,7 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   overflow: hidden;
 }
 .hero-decor { position: absolute; border-radius: 50%; opacity: 0.5; filter: blur(2px); }
-.hero-decor-1 { width: 220px; height: 220px; background: var(--color-pink-light); top: -60px; right: -60px; }
+.hero-decor-1 { width: 220px; height: 220px; background: var(--color-orange-light); top: -60px; right: -60px; }
 .hero-decor-2 { width: 160px; height: 160px; background: var(--color-lilac); bottom: -40px; left: -40px; }
 
 .hero-inner {
@@ -157,13 +164,13 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
 }
 .tag-pill {
   display: inline-block;
-  background: var(--color-white);
-  color: var(--color-purple);
+  background: var(--gradient-orange);
+  color: var(--color-white);
   font-weight: 700;
   font-size: 0.85rem;
   padding: 0.4rem 1rem;
   border-radius: 100px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-orange);
   margin-bottom: var(--space-2);
 }
 .hero-text h1 { font-size: clamp(2rem, 5vw, 2.9rem); margin-bottom: var(--space-2); }
@@ -175,7 +182,7 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  border: 6px solid var(--color-white);
+  border: 6px solid var(--color-orange-light);
   max-width: 420px;
 }
 
@@ -191,12 +198,13 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-top: 3px solid transparent;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-orange); border-top-color: var(--color-orange); }
 .card-icon {
   width: 54px; height: 54px;
   border-radius: 50%;
-  background: var(--gradient-main);
+  background: var(--gradient-orange);
   color: var(--color-white);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: var(--space-2);
@@ -217,7 +225,7 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   overflow: hidden;
   box-shadow: var(--shadow-md);
   max-width: 380px;
-  border: 6px solid var(--color-bg-soft);
+  border: 6px solid var(--color-orange-light);
 }
 .about-text p { color: var(--color-text-secondary); margin-bottom: var(--space-2); }
 .about-text .btn { margin-top: var(--space-2); }
@@ -233,13 +241,13 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   border-radius: var(--radius-md);
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
-  border-left: 4px solid var(--color-pink-accent);
+  border-left: 4px solid var(--color-orange);
 }
 .timeline-icon {
   width: 46px; height: 46px;
   border-radius: 50%;
-  background: var(--color-pink-light);
-  color: var(--color-purple);
+  background: var(--color-orange-light);
+  color: var(--color-orange-dark);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: var(--space-2);
 }
@@ -271,12 +279,12 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   align-items: center;
   margin-bottom: var(--space-3);
 }
-.footer-logo { color: var(--color-pink-light); }
+.footer-logo { color: var(--color-orange-light); }
 .footer-brand p { font-size: 0.85rem; opacity: 0.8; }
 .footer-contact { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
 .footer-link { font-weight: 600; opacity: 0.9; transition: opacity 0.2s ease, color 0.2s ease; }
-.footer-link:hover { opacity: 1; color: var(--color-pink-light); }
-.footer-phrase { font-family: var(--font-title); font-size: 1.1rem; color: var(--color-pink-light); margin-bottom: var(--space-2); }
+.footer-link:hover { opacity: 1; color: var(--color-orange-light); }
+.footer-phrase { font-family: var(--font-title); font-size: 1.1rem; color: var(--color-orange-light); margin-bottom: var(--space-2); }
 .footer-copy { font-size: 0.8rem; opacity: 0.7; }
 
 /* ===== WHATSAPP FLUTUANTE ===== */
@@ -291,6 +299,7 @@ h1, h2, h3 { font-family: var(--font-title); color: var(--color-text-dark); line
   display: flex; align-items: center; justify-content: center;
   z-index: 999;
   transition: transform 0.25s ease;
+  border: 2px solid var(--color-orange-light);
 }
 .whatsapp-float svg { width: 34px; height: 34px; }
 .whatsapp-float:hover { transform: scale(1.08); }
